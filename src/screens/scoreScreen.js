@@ -130,9 +130,9 @@ const scoreScreen = ({navigation, route}) => {
       csgName == 'สอบปลายภาคเรียน' ||
       csgName == 'สอบปลายภาคเรียนที่ 1' ||
       csgName == 'สอบปลายภาคเรียนที่ 2' ||
-      csgName == 'ภาษาไทย-สอบปลายภาคเรียน' ||
-      csgName == 'ภาษาไทย-สอบปลายภาคเรียนที่ 1' ||
-      csgName == 'ภาษาไทย-สอบปลายภาคเรียนที่ 2'
+      csgName == 'สังคมศึกษา-สอบปลายภาคเรียน' ||
+      csgName == 'สังคมศึกษา-สอบปลายภาคเรียนที่ 1' ||
+      csgName == 'สังคมศึกษา-สอบปลายภาคเรียนที่ 2'
     ) {
       setshowLevel(false);
     }
@@ -787,6 +787,7 @@ const scoreScreen = ({navigation, route}) => {
                             subid: csgId,
                             gradeid: gradeId,
                             csgName: csgName,
+                            from: 'scoreScreen',
                           })
                         }>
                         <Text
