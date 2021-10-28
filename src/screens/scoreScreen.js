@@ -34,6 +34,9 @@ const scoreScreen = ({navigation, route}) => {
     csgName,
     gradeId,
     overTimePlus,
+    timeTestEasy,
+    timeTestMedium,
+    timeTestHard,
   } = route.params;
   const timeUsed = timeOut - timeLeft + overTimePlus;
   const timePlus = timeLeft - overTimePlus;
@@ -127,12 +130,9 @@ const scoreScreen = ({navigation, route}) => {
 
   useEffect(() => {
     if (
-      csgName == 'สอบปลายภาคเรียน' ||
-      csgName == 'สอบปลายภาคเรียนที่ 1' ||
-      csgName == 'สอบปลายภาคเรียนที่ 2' ||
-      csgName == 'สังคมศึกษา-สอบปลายภาคเรียน' ||
-      csgName == 'สังคมศึกษา-สอบปลายภาคเรียนที่ 1' ||
-      csgName == 'สังคมศึกษา-สอบปลายภาคเรียนที่ 2'
+      timeTestEasy == null &&
+      timeTestMedium !== null &&
+      timeTestHard == null
     ) {
       setshowLevel(false);
     }
