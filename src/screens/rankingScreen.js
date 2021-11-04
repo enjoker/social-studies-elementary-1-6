@@ -13,6 +13,8 @@ import { useSelector, useDispatch } from 'react-redux';
 import { DataTable } from 'react-native-paper';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { CommonActions } from '@react-navigation/native';
+//import Ads
+import BannerAds from '../components/bannerAds';
 
 import * as scoreActions from '../store/actions/score';
 
@@ -229,25 +231,25 @@ const rankingScreen = ({ navigation, route }) => {
                     </Text>
                   </TouchableOpacity>
                   <TouchableOpacity
-                        style={{ alignItems: 'center', marginTop: 10 }}
-                        onPress={() =>
-                          navigation.dispatch(
-                            CommonActions.reset({
-                              index: 1,
-                              routes: [
-                                { name: 'home' },
-                                {
-                                  name: 'optionTest',
-                                  params: {
-                                    subid: csgId,
-                                    gradeid: gradeId,
-                                    csgName: csgName,
-                                  },
-                                },
-                              ],
-                            }),
-                          )
-                        }>
+                    style={{ alignItems: 'center', marginTop: 10 }}
+                    onPress={() =>
+                      navigation.dispatch(
+                        CommonActions.reset({
+                          index: 1,
+                          routes: [
+                            { name: 'home' },
+                            {
+                              name: 'optionTest',
+                              params: {
+                                subid: csgId,
+                                gradeid: gradeId,
+                                csgName: csgName,
+                              },
+                            },
+                          ],
+                        }),
+                      )
+                    }>
                     <Text
                       style={[
                         styles.textBold16,
@@ -272,9 +274,7 @@ const rankingScreen = ({ navigation, route }) => {
           </View>
         </View>
       </ImageBackground>
-      <View style={{ backgroundColor: '#EEEEEE', height: 50, justifyContent: 'center', alignItems: 'center' }}>
-        <Text>Ads Area</Text>
-      </View>
+      <BannerAds />
     </SafeAreaView>
   );
 };

@@ -14,10 +14,13 @@ import {
 import styles from '../styles/style';
 import { Image, Icon, Avatar, normalize, Card } from 'react-native-elements';
 import { useDispatch, useSelector } from 'react-redux';
+//import Ads
+import BannerAds from '../components/bannerAds';
 
 const typeScreen = ({ navigation }) => {
   const ContainerContent = () => {
     const SubGradeDetail = useSelector(state => state.subGrade.showSubGrade);
+   
     const [newSubGradeDetail, setnewSubGradeDetail] = useState([]);
     console.log(SubGradeDetail.length);
     const [colorBox, setcolorBox] = useState([
@@ -32,10 +35,10 @@ const typeScreen = ({ navigation }) => {
     useEffect(() => {
       let test = [];
       let dontUse = [];
-      let dataLength = SubGradeDetail.length;
-      for (let k = 0; k < dataLength; k++) {
-        let value = SubGradeDetail.splice(0, 1);
-        if (value != '') {
+      let dataLength = SubGradeDetail.length
+      for (let k = 0; k < dataLength; k++) {   
+        let value = SubGradeDetail.splice(0, 1);   
+        if (value != '') {        
           if (
             value[0].csg_name == 'test' ||
             value[0].csg_name == 'test1' ||
@@ -63,6 +66,7 @@ const typeScreen = ({ navigation }) => {
       //SubGradeDetail.push(test.concat(dontUse))
       setnewSubGradeDetail(test);
     }, [SubGradeDetail]);
+  
 
     return (
       <View>
@@ -133,9 +137,7 @@ const typeScreen = ({ navigation }) => {
           </TouchableOpacity>
         </View>
       </ImageBackground>
-      <View style={{ backgroundColor: '#EEEEEE', height: 50, justifyContent: 'center', alignItems: 'center' }}>
-        <Text>Ads Area</Text>
-      </View>
+      <BannerAds />
     </SafeAreaView>
   );
 };

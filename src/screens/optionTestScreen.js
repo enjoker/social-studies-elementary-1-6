@@ -23,7 +23,10 @@ import {getSubAndTimeGrade5} from '../functions/functions';
 import {getSubAndTimeGrade6} from '../functions/functions';
 import * as levelTestActions from '../store/actions/levelTest';
 
-const optionTestScreen = ({navigation, route}) => {  
+//import Ads
+import BannerAds from '../components/bannerAds';
+
+const optionTestScreen = ({navigation, route}) => {
   const subid = route.params.subid;
   const gradeid = route.params.gradeid;
   const csgName = route.params.csgName;
@@ -38,9 +41,9 @@ const optionTestScreen = ({navigation, route}) => {
   const [timeTestEasy, settimeTestEasy] = useState(null);
   const [timeTestMedium, settimeTestMedium] = useState(null);
   const [timeTestHard, settimeTestHard] = useState(null);
-  const dispatch = useDispatch();
-  
+  const dispatch = useDispatch(); 
   useEffect(() => {}, []);
+
   const GetSubDetail1 = async () => {
     if (gradeid == 1) {
       const res = await fetch(getSubAndTimeGrade1(), {
@@ -116,6 +119,7 @@ const optionTestScreen = ({navigation, route}) => {
       }
     }
   }, [subAllDetail, subDetail, csgName]);
+
   const ContainerContent = () => {
     const optionTestHandler = async () => {
       let action;
@@ -168,6 +172,7 @@ const optionTestScreen = ({navigation, route}) => {
       }
     };
     useEffect(() => changeNameGrade(), [gradeid]);
+
     const timeTest = () => {
       if (timeTestEasy !== null && levelSelected == 1) {
         console.log(timeTestEasy + 'ง่าย');
@@ -209,6 +214,7 @@ const optionTestScreen = ({navigation, route}) => {
         timeTestHard,
       ],
     );
+
     useEffect(() => {
       if (
         timeTestEasy == null &&
@@ -433,15 +439,7 @@ const optionTestScreen = ({navigation, route}) => {
           </View>
         </View>
       </ImageBackground>
-      <View
-        style={{
-          backgroundColor: '#EEEEEE',
-          height: 50,
-          justifyContent: 'center',
-          alignItems: 'center',
-        }}>
-        <Text>Ads Area</Text>
-      </View>
+      <BannerAds />
     </SafeAreaView>
   );
 };
