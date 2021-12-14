@@ -202,9 +202,12 @@ const scoreScreen = ({ navigation, route }) => {
   }, []);
 
   useEffect(() => {
-    sendScore();
     checkAdsTime();
   }, [privilege]);
+
+  useEffect(() => {
+    sendScore();
+  }, []);
 
   useEffect(() => {
     if (adsTimeStamp) {
@@ -264,7 +267,6 @@ const scoreScreen = ({ navigation, route }) => {
   const AnswerModal = () => {
     const answerResult = selectedQuestion.answerResult;
     const answerIndex = selectedQuestion.index;
-    console.log(allQuestions[selectedQuestion.index].examPicQuestion)
     return (
       <View style={{ flex: 1, justifyContent: 'center' }}>
         <View
